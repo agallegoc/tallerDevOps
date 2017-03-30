@@ -10,8 +10,8 @@ serverConfig(app);
 routes(app);
 
 var server = app.listen(app.get('port'), app.get('ip'), function() {
-	console.log("ToDo List " + process.env.npm_package_version);
-	console.log('Express server listening on ' + app.get('ip') + ':' + app.get('port'));
+    console.log("ToDo List " + process.env.npm_package_version);
+    console.log('Express server listening on ' + app.get('ip') + ':' + app.get('port'));
 });
 
 module.exports = server;
