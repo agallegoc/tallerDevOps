@@ -3,10 +3,15 @@
 var express = require('express');
 var app = express();
 
-var serverConfig = require('./app/serverConfig');
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({
+    extended: false
+});
+
+var config = require('./app/config');
 var routes = require('./app/routes');
 
-serverConfig(app);
+config(app);
 routes(app);
 
 var server = app.listen(app.get('port'), app.get('ip'), function() {

@@ -1,14 +1,10 @@
 "use strict";
 
+var bodyParser = require('body-parser');
 var favicon = require('serve-favicon');
 var ejs = require('ejs');
-var bodyParser = require('body-parser');
 var session = require('cookie-session');
 var morgan = require('morgan');
-
-var urlencodedParser = bodyParser.urlencoded({
-    extended: false
-});
 
 module.exports = function(app) {
     app.set('port', process.env.PORT || 3000);

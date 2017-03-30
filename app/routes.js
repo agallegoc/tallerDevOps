@@ -1,5 +1,9 @@
 "use strict";
 
+var urlencodedParser = require('body-parser').urlencoded({
+    extended: false
+});
+
 module.exports = function(app) {
     app.use(function(req, res, next) {
         if (typeof(req.session.todolist) == 'undefined') {
