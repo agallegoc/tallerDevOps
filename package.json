@@ -42,6 +42,6 @@
         "npm": ">=3.10.10"
     },
     "scripts": {
-        "start": "start app.js"
+        "start": "node app.js"
     }
 }

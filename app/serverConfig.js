@@ -23,7 +23,7 @@ module.exports = function(app) {
 
     app.use(bodyParser.json());
 
-    app.use(favicon('./public/favicon/favicon.ico'));
+    //app.use(favicon('./public/favicon/favicon.ico'));
     app.use(morgan('dev'));
 
     if (app.get('env') === "dev") {
