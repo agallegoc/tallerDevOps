@@ -11,10 +11,10 @@
     temp_dir: "/tmp"
 
   tasks:
-    - name: Descargar script instalación Node
-      get_url: url=https://deb.nodesource.com/setup_6.x dest=./setup_6.x mode=0550
-    - name: Ejecutar script de instalación de Node
-      command: ./setup_6.x
+#    - name: Descargar script instalación Node
+#      get_url: url=https://deb.nodesource.com/setup_6.x dest=./setup_6.x mode=0550
+#    - name: Ejecutar script de instalación de Node
+#      command: ./setup_6.x
     - name: "Actualizar cache"
       apt:
         update_cache: "yes"
