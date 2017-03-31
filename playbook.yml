@@ -1,0 +1,39 @@
+# ansible	2.1
+
+---
+- hosts: "devops"
+  become: "yes"
+  remote_user: "vagrant"
+  gather_facts: "no"
+
+  vars:
+    user: "vagrant"
+    temp_dir: "/tmp"
+
+  tasks:
+    - name: Descargar script instalación Node
+      get_url: url=https://deb.nodesource.com/setup_6.x dest=./setup_6.x mode=0550
+    - name: Ejecutar script de instalación de Node
+      command: ./setup_6.x
+    - name: "Actualizar cache"
+      apt:
+        update_cache: "yes"
+        cache_valid_time: "1800"
+        upgrade: "safe"
+        dpkg_options: "force-confold"
+    - name: "Instalar dependencias"
+      apt:
+        name: "{{ item }}"
+        state: "latest"
+        dpkg_options: "force-confold"
+      with_items:
+        - "git"
+        - "nodejs"
+    - name: "Clonar repositorio git"
+      git:
+        repo: https://github.com/germaaan/tallerDevOps.git
+        dest: "/home/{{ user }}"
+    - name: "Instala dependencias"
+      command: "npm install"
+      args:
+        chdir: "/home/{{ user }}/tallerDevOps"
